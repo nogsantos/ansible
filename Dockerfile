@@ -1,4 +1,4 @@
-FROM ubuntu:trusty-20161214
+FROM ubuntu:trusty-20181115
 
 RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends \
  && echo 'APT::Install-Suggests 0;' >> /etc/apt/apt.conf.d/01norecommends \
@@ -18,6 +18,7 @@ RUN mkdir /root/.ssh
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:screencast' | chpasswd
+
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
@@ -28,7 +29,6 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 RUN ssh-keygen -t rsa -b 4096 -f /etc/ansible/keys/key -q -N ""
 
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
-
 WORKDIR /etc/ansible
+
+EXPOSE 22
