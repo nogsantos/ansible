@@ -8,25 +8,6 @@ O [Ansible][ansible] é uma plataforma de automação. Foi criado para provision
 >
 > Os principais objetivos da [Ansible][ansible] são simplicidade e facilidade de uso. Ele também tem um forte foco em segurança e confiabilidade, apresentando um mínimo de partes móveis, uso de OpenSSH para transporte (com outros transportes e modos pull como alternativas) e uma linguagem projetada em torno da capacidade de auditoria por humanos - mesmo aqueles não familiarizados com o programa.
 
-##### Note
-
->
-> Final container size ~ `323MB`.
->
-> The image is built on top of the most recently tagged `ubuntu:14.04` image and installs the following extra packages:
-> - `vim.tiny`
-> - `wget`
-> - `sudo`
-> - `net-tools`
-> - `ca-certificates`
-> - `unzip`
-> - `lsof`
-> - `bash-completion`
-> - `software-properties-common`
-> - `ssh`
-> - `openssh-server`
-> - `ansible`
-
 ## SSH
 
 Todos os arquivos para configuração estão localizados em `/etc/ansible/`
@@ -79,5 +60,24 @@ Nesse caso, a chave foi gerada com o nome `example-key`.
 ```shell
 # ssh-copy-id -i /etc/ansible/keys/key.pub [user]@[address]
 ```
+
+##### Footer notes
+
+>
+> Final container size ~ `323MB`.
+>
+> The image is built on top of the most recently tagged `ubuntu:14.04` image and installs the following extra packages:
+> - `vim.tiny`
+> - `wget`
+> - `sudo`
+> - `net-tools`
+> - `ca-certificates`
+> - `unzip`
+> - `lsof`
+> - `bash-completion`
+> - `software-properties-common`
+> - `ssh`
+> - `openssh-server`
+> - `ansible`
 
 [ansible]:https://docs.ansible.com/ansible/latest/index.html "Ansible"
